@@ -15,7 +15,7 @@ exports.create = (req, res) => {
         juego.fecha_alquiler = req.body.fecha_alquiler;
         juego.fecha_devolucion = req.body.fecha_devolucion;
         juego.nombre_cliente = req.body.nombre_cliente;
-        juego.comentarios = req.body.comentarios;
+        juego.comentario = req.body.comentario;
 
         Juego.create(juego).then(result => {
             res.status(200).json({
