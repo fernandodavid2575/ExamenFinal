@@ -35,7 +35,6 @@ module.exports = (sequelize, Sequelize) => {
         comentarios: {
             type: Sequelize.STRING
         }
-
     });
     return Juego;
 };

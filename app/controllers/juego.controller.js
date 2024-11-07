@@ -5,6 +5,7 @@ exports.create = (req, res) => {
     let juego = {};
 
     try {
+
         juego.nombre_juego = req.body.nombre_juego;
         juego.genero = req.body.genero;
         juego.plataforma = req.body.plataforma;
@@ -30,23 +31,6 @@ exports.create = (req, res) => {
     }
 };
 
-exports.retrieveAllEjemplos = (req, res) => {
-    Ejemplo.findAll()
-        .then(ejemploInfos => {
-            res.status(200).json({
-                message: "¡ejemplos obtenidos exitosamente!",
-                ejemplos: ejemploInfos
-            });
-        })
-        .catch(error => {
-            console.log(error);
-            res.status(500).json({
-                message: "¡Error al obtener los ejemplos!",
-                error: error
-            });
-        });
-};
-
 exports.getJuegoById = (req, res) => {
     let juegoId = req.params.id;
     Juego.findByPk(juegoId)
@@ -61,23 +45,6 @@ exports.getJuegoById = (req, res) => {
             res.status(500).json({
                 message: "¡Error al obtener el juego con id!",
                 error: error
-            });
-        });
-};
-
-exports.getEjemploByName = (req, res) => {
-    const ejemploName = req.params.nombre;
-    Ejemplo.findAll({ where: { nombre: ejemploName } })
-        .then(ejemplos => {
-            res.status(200).json({
-                message: "ejemplos obtenidas exitosamente con el nombre = " + ejemploName,
-                ejemplos: ejemplos
-            });
-        })
-        .catch(error => {
-            res.status(500).json({
-                message: "Error al obtener los ejemplos!",
-                error: error.message
             });
         });
 };
