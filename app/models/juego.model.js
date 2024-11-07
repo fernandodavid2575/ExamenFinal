@@ -32,10 +32,10 @@ module.exports = (sequelize, Sequelize) => {
         nombre_cliente: {
             type: Sequelize.STRING
         },
-        comentarios: {
+        comentario: {
             type: Sequelize.STRING
         }
     });
-    
+
     return Juego;
 };
